@@ -1,0 +1,2258 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Правовое Бюро — Юридическое сопровождение и защита ваших прав</title>
+    <meta name="description" content="Профессиональное юридическое консультирование и сопровождение дел в судах. Взыскание компенсаций, страховые споры, защита прав потребителей. Бесплатная онлайн-консультация.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #1e3a5f;
+            --primary-light: #2d4a6f;
+            --primary-dark: #152a45;
+            --accent: #b8956e;
+            --accent-light: #d4b896;
+            --accent-dark: #9a7a5a;
+            --dark: #1a1a1a;
+            --gray-900: #212121;
+            --gray-800: #333333;
+            --gray-700: #4a4a4a;
+            --gray-600: #666666;
+            --gray-500: #888888;
+            --gray-400: #aaaaaa;
+            --gray-300: #cccccc;
+            --gray-200: #e5e5e5;
+            --gray-100: #f5f5f5;
+            --white: #ffffff;
+            --success: #4caf50;
+            --max-purple: #8B5CF6;
+            --max-purple-dark: #7C3AED;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+            --shadow: 0 4px 12px rgba(0,0,0,0.1);
+            --shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
+            --shadow-xl: 0 12px 40px rgba(0,0,0,0.15);
+            --radius-sm: 8px;
+            --radius: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--white);
+            color: var(--dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: var(--white);
+            border-bottom: 1px solid var(--gray-200);
+            transition: var(--transition);
+        }
+
+        .header.scrolled {
+            box-shadow: var(--shadow);
+        }
+
+        .header-container {
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+        }
+
+        .logo-main {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+        }
+
+        .logo-tagline {
+            font-size: 0.6rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .nav-links {
+            display: none;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            color: var(--gray-700);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .header-messengers {
+            display: flex;
+            gap: 0.4rem;
+        }
+
+        .messenger-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .messenger-btn:hover {
+            transform: scale(1.1);
+            box-shadow: var(--shadow);
+        }
+
+        .messenger-btn.telegram {
+            background: #0088cc;
+        }
+
+        .messenger-btn.whatsapp {
+            background: #25d366;
+        }
+
+        .messenger-btn.max {
+            background: var(--max-purple);
+        }
+
+        .messenger-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: white;
+        }
+
+        .messenger-btn.max svg {
+            width: 36px;
+            height: 36px;
+        }
+
+        .header-btn {
+            display: none;
+            padding: 0.6rem 1.2rem;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .header-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        .mobile-menu-btn {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            background: none;
+            border: none;
+            padding: 8px;
+            margin-left: 0.5rem;
+        }
+
+        .mobile-menu-btn span {
+            width: 22px;
+            height: 2px;
+            background: var(--primary);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: rotate(45deg) translate(4px, 4px);
+        }
+
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(4px, -4px);
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--white);
+            z-index: 999;
+            padding: 5rem 1.5rem 2rem;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .mobile-nav.active {
+            transform: translateX(0);
+        }
+
+        .mobile-nav-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 44px;
+            height: 44px;
+            background: var(--gray-100);
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            color: var(--gray-600);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .mobile-nav-links {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .mobile-nav-links li {
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .mobile-nav-links a {
+            display: block;
+            padding: 1rem 0;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .mobile-nav-messengers {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .mobile-nav-messengers .messenger-btn {
+            width: 50px;
+            height: 50px;
+        }
+
+        .mobile-nav-messengers .messenger-btn svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .mobile-nav-messengers .messenger-btn.max svg {
+            width: 50px;
+            height: 50px;
+        }
+
+        .mobile-nav-cta {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: var(--radius);
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: var(--radius-sm);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-white {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        .btn-white:hover {
+            background: var(--gray-100);
+            transform: translateY(-2px);
+        }
+
+        .btn-lg {
+            padding: 1rem 2rem;
+            font-size: 1rem;
+        }
+
+        .hero {
+            padding: 5rem 1rem 3rem;
+            background: linear-gradient(180deg, var(--gray-100) 0%, var(--white) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 220px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-content {
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: var(--primary);
+            color: var(--white);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--dark);
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+
+        .hero-title span {
+            color: var(--primary);
+        }
+
+        .hero-subtitle {
+            font-size: 0.95rem;
+            color: var(--gray-600);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .hero-features {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-feature {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            font-size: 0.85rem;
+            color: var(--gray-700);
+        }
+
+        .hero-feature-icon {
+            width: 20px;
+            height: 20px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .hero-feature-icon svg {
+            width: 12px;
+            height: 12px;
+            fill: var(--white);
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .section {
+            padding: 3rem 1rem;
+        }
+
+        .section-dark {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .section-gray {
+            background: var(--gray-100);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--white);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-dark .section-badge {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .section-dark .section-title {
+            color: var(--white);
+        }
+
+        .section-subtitle {
+            font-size: 0.9rem;
+            color: var(--gray-600);
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .section-dark .section-subtitle {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .section-cta {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .section-note {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .section-dark .section-note {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .promo-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .promo-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .promo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .promo-image {
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .promo-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .promo-card:hover .promo-image img {
+            transform: scale(1.05);
+        }
+
+        .promo-content {
+            padding: 1.25rem;
+        }
+
+        .promo-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .promo-text {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .promo-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .promo-link:hover {
+            color: var(--accent);
+            gap: 0.6rem;
+        }
+
+        .services-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .service-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius);
+            padding: 1.25rem;
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(255,255,255,0.2);
+        }
+
+        .service-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .service-title-block h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 0.25rem;
+        }
+
+        .service-tag {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--white);
+            padding: 0.15rem 0.5rem;
+            border-radius: 10px;
+            font-size: 0.65rem;
+            font-weight: 600;
+        }
+
+        .service-list {
+            list-style: none;
+            margin-bottom: 1rem;
+        }
+
+        .service-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        .service-list li::before {
+            content: '✓';
+            color: var(--accent);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .service-result {
+            background: rgba(184,149,110,0.15);
+            border-left: 3px solid var(--accent);
+            padding: 0.75rem;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+        }
+
+        .service-result p {
+            color: rgba(255,255,255,0.9);
+            font-size: 0.85rem;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .service-result strong {
+            color: var(--accent-light);
+        }
+
+        .process-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .process-step {
+            display: flex;
+            gap: 1rem;
+            position: relative;
+        }
+
+        .process-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 45px;
+            width: 2px;
+            height: calc(100% - 10px);
+            background: var(--gray-300);
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--white);
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-content h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .step-content p {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        .stats {
+            padding: 2.5rem 1rem;
+            background: var(--primary);
+        }
+
+        .stats-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-light);
+            line-height: 1;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.75rem;
+        }
+
+        .cases-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .case-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .case-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .case-header {
+            background: var(--primary);
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .case-icon {
+            font-size: 1.25rem;
+        }
+
+        .case-type {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .case-body {
+            padding: 1.25rem;
+        }
+
+        .case-row {
+            margin-bottom: 0.75rem;
+        }
+
+        .case-label {
+            font-size: 0.7rem;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.15rem;
+        }
+
+        .case-value {
+            font-size: 0.9rem;
+            color: var(--dark);
+            line-height: 1.5;
+        }
+
+        .case-result {
+            background: var(--gray-100);
+            padding: 1rem;
+            border-radius: var(--radius-sm);
+            margin-top: 0.75rem;
+        }
+
+        .case-result .case-label {
+            color: var(--primary);
+        }
+
+        .case-amount {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .case-duration {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: var(--primary);
+            color: var(--white);
+            padding: 0.4rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 0.75rem;
+        }
+
+        .why-section {
+            position: relative;
+        }
+
+        .why-image {
+            width: 100%;
+            height: 200px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .why-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .why-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .why-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 1.25rem;
+            border: 1px solid var(--gray-200);
+            transition: var(--transition);
+        }
+
+        .why-card:hover {
+            border-color: var(--accent);
+            box-shadow: var(--shadow);
+        }
+
+        .why-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .why-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.4rem;
+        }
+
+        .why-card p {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        .about-content {
+            text-align: center;
+        }
+
+        .about-text {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.85);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .about-text strong {
+            color: var(--accent-light);
+        }
+
+        .about-mission {
+            background: rgba(255,255,255,0.1);
+            border-radius: var(--radius);
+            padding: 1.25rem;
+            margin-top: 1.5rem;
+        }
+
+        .about-mission h3 {
+            color: var(--accent-light);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .about-mission p {
+            color: rgba(255,255,255,0.9);
+            font-size: 0.9rem;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .reviews-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .review-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .review-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .review-image {
+            width: 100%;
+            height: 160px;
+            overflow: hidden;
+        }
+
+        .review-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .review-content {
+            padding: 1.25rem;
+        }
+
+        .review-stars {
+            color: var(--accent);
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .review-text {
+            color: var(--gray-700);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .review-avatar {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .review-name {
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 0.9rem;
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .faq-question {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
+            background: none;
+            border: none;
+            text-align: left;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--dark);
+            gap: 1rem;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            color: var(--primary);
+        }
+
+        .faq-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--gray-100);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: var(--primary);
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .faq-item.active .faq-icon {
+            background: var(--primary);
+            color: var(--white);
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding-bottom: 1rem;
+        }
+
+        .faq-answer p {
+            color: var(--gray-600);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        .contact-content {
+            text-align: center;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .contact-messengers {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-messenger-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 1rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--white);
+            transition: var(--transition);
+        }
+
+        .contact-messenger-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-messenger-btn.telegram {
+            background: #0088cc;
+        }
+
+        .contact-messenger-btn.whatsapp {
+            background: #25d366;
+        }
+
+        .contact-messenger-btn.max {
+            background: var(--max-purple);
+        }
+
+        .contact-messenger-btn svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        .contact-messenger-btn.max svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .contact-divider {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.85rem;
+        }
+
+        .contact-divider::before,
+        .contact-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(255,255,255,0.2);
+        }
+
+        .contact-email {
+            color: var(--accent-light);
+            font-size: 1rem;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .contact-email:hover {
+            color: var(--white);
+        }
+
+        .contact-hours {
+            margin-top: 1.5rem;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        .contact-hours strong {
+            color: var(--white);
+        }
+
+        .contact-privacy {
+            margin-top: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.8rem;
+        }
+
+        .footer {
+            background: var(--gray-900);
+            padding: 2rem 1rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-messengers {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .footer-messenger-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            overflow: hidden;
+        }
+
+        .footer-messenger-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .footer-messenger-btn.telegram {
+            background: rgba(0,136,204,0.2);
+        }
+
+        .footer-messenger-btn.telegram:hover {
+            background: #0088cc;
+        }
+
+        .footer-messenger-btn.whatsapp {
+            background: rgba(37,211,102,0.2);
+        }
+
+        .footer-messenger-btn.whatsapp:hover {
+            background: #25d366;
+        }
+
+        .footer-messenger-btn.max {
+            background: rgba(139,92,246,0.2);
+        }
+
+        .footer-messenger-btn.max:hover {
+            background: var(--max-purple);
+        }
+
+        .footer-messenger-btn svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .footer-messenger-btn.telegram svg {
+            fill: #0088cc;
+        }
+
+        .footer-messenger-btn.whatsapp svg {
+            fill: #25d366;
+        }
+
+        .footer-messenger-btn.max svg {
+            width: 44px;
+            height: 44px;
+        }
+
+        .footer-messenger-btn:hover svg {
+            fill: white;
+        }
+
+        .footer-legal {
+            color: var(--gray-500);
+            font-size: 0.8rem;
+        }
+
+        @media (min-width: 768px) {
+            .header-container {
+                padding: 0.75rem 2rem;
+            }
+
+            .logo-main {
+                font-size: 1.3rem;
+            }
+
+            .nav-links {
+                display: flex;
+            }
+
+            .header-btn {
+                display: inline-flex;
+            }
+
+            .mobile-menu-btn {
+                display: none;
+            }
+
+            .hero {
+                padding: 7rem 2rem 4rem;
+            }
+
+            .hero-container {
+                display: flex;
+                align-items: center;
+                gap: 3rem;
+            }
+
+            .hero-image {
+                flex: 1;
+                height: 400px;
+                margin-bottom: 0;
+                order: 2;
+            }
+
+            .hero-content {
+                flex: 1;
+                text-align: left;
+                order: 1;
+            }
+
+            .hero-title {
+                font-size: 2.25rem;
+            }
+
+            .hero-features {
+                align-items: flex-start;
+            }
+
+            .hero-feature {
+                justify-content: flex-start;
+            }
+
+            .hero-actions {
+                flex-direction: row;
+            }
+
+            .section {
+                padding: 4rem 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .promo-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.5rem;
+            }
+
+            .services-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .cases-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .why-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .why-section-container {
+                display: flex;
+                gap: 3rem;
+                align-items: flex-start;
+            }
+
+            .why-image {
+                flex: 1;
+                height: 400px;
+                margin-bottom: 0;
+            }
+
+            .why-content {
+                flex: 1.5;
+            }
+
+            .reviews-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.5rem;
+            }
+
+            .contact-messengers {
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            .contact-messenger-btn {
+                flex: none;
+                padding: 1rem 1.5rem;
+            }
+
+            .footer-content {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero {
+                padding: 8rem 2rem 5rem;
+            }
+
+            .hero-title {
+                font-size: 2.75rem;
+            }
+
+            .hero-image {
+                height: 500px;
+            }
+
+            .section {
+                padding: 5rem 2rem;
+            }
+
+            .section-title {
+                font-size: 2.25rem;
+            }
+
+            .cases-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .why-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="header-container">
+            <a href="#" class="logo">
+                <span class="logo-main">ПРАВОВОЕ БЮРО</span>
+                <span class="logo-tagline">Ваши права — наша работа</span>
+            </a>
+            
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="#cases">Результаты</a></li>
+                    <li><a href="#why">Почему мы</a></li>
+                    <li><a href="#reviews">Отзывы</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <div class="header-messengers">
+                    <a href="https://t.me/+79521651110" target="_blank" class="messenger-btn telegram" aria-label="Telegram">
+                        <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                    </a>
+                    <a href="https://wa.me/79521651110" target="_blank" class="messenger-btn whatsapp" aria-label="WhatsApp">
+                        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    </a>
+                    <a href="https://max.ru/u/79609059555" target="_blank" class="messenger-btn max" aria-label="Max">
+                        <svg viewBox="0 0 100 100">
+                            <rect width="100" height="100" rx="20" fill="#8B5CF6"/>
+                            <text x="50" y="62" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="32" font-weight="bold">max</text>
+                        </svg>
+                    </a>
+                </div>
+                <button class="header-btn" onclick="openChat()">Консультация</button>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()" aria-label="Меню">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <nav class="mobile-nav" id="mobileNav">
+        <button class="mobile-nav-close" onclick="toggleMobileMenu()">×</button>
+        <ul class="mobile-nav-links">
+            <li><a href="#services" onclick="toggleMobileMenu()">Услуги</a></li>
+            <li><a href="#cases" onclick="toggleMobileMenu()">Результаты</a></li>
+            <li><a href="#why" onclick="toggleMobileMenu()">Почему мы</a></li>
+            <li><a href="#reviews" onclick="toggleMobileMenu()">Отзывы</a></li>
+            <li><a href="#faq" onclick="toggleMobileMenu()">Вопросы</a></li>
+            <li><a href="#contact" onclick="toggleMobileMenu()">Контакты</a></li>
+        </ul>
+        <div class="mobile-nav-messengers">
+            <a href="https://t.me/+79521651110" target="_blank" class="messenger-btn telegram">
+                <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+            </a>
+            <a href="https://wa.me/79521651110" target="_blank" class="messenger-btn whatsapp">
+                <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+            <a href="https://max.ru/u/79609059555" target="_blank" class="messenger-btn max">
+                <svg viewBox="0 0 100 100">
+                    <rect width="100" height="100" rx="20" fill="#8B5CF6"/>
+                    <text x="50" y="62" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="32" font-weight="bold">max</text>
+                </svg>
+            </a>
+        </div>
+        <button class="mobile-nav-cta" onclick="openChat(); toggleMobileMenu();">Бесплатная консультация</button>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">⚖️ Юридическая помощь</div>
+                <h1 class="hero-title">Юридическое <span>сопровождение</span> и защита ваших прав</h1>
+                <p class="hero-subtitle">Профессиональное консультирование, представительство в судах общей юрисдикции и арбитраже. Взыскание компенсаций, страховые споры, защита прав потребителей.</p>
+                
+                <div class="hero-features">
+                    <div class="hero-feature">
+                        <div class="hero-feature-icon">
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        </div>
+                        <span>Бесплатная онлайн-консультация</span>
+                    </div>
+                    <div class="hero-feature">
+                        <div class="hero-feature-icon">
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        </div>
+                        <span>Оплата за результат</span>
+                    </div>
+                    <div class="hero-feature">
+                        <div class="hero-feature-icon">
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        </div>
+                        <span>Опыт более 15 лет</span>
+                    </div>
+                </div>
+
+                <div class="hero-actions">
+                    <button class="btn btn-primary btn-lg" onclick="openChat()">Получить консультацию</button>
+                    <a href="#services" class="btn btn-outline btn-lg">Наши услуги</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="Hero.jpg" alt="Юридическая консультация">
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-header animate-on-scroll">
+            <div class="section-badge">Направления</div>
+            <h2 class="section-title">Чем мы можем помочь</h2>
+            <p class="section-subtitle">Выберите интересующее направление для подробной консультации</p>
+        </div>
+
+        <div class="promo-grid">
+            <div class="promo-card animate-on-scroll">
+                <div class="promo-image">
+                    <img src="Промо-блок 1.jpg" alt="Судебное представительство">
+                </div>
+                <div class="promo-content">
+                    <h3 class="promo-title">Судебное представительство</h3>
+                    <p class="promo-text">Полное сопровождение дел в судах общей юрисдикции и арбитраже. Представляем ваши интересы на всех этапах процесса.</p>
+                    <a href="#services" class="promo-link">Подробнее →</a>
+                </div>
+            </div>
+            <div class="promo-card animate-on-scroll">
+                <div class="promo-image">
+                    <img src="Промо-блок 2.jpg" alt="Взыскание компенсаций">
+                </div>
+                <div class="promo-content">
+                    <h3 class="promo-title">Взыскание компенсаций</h3>
+                    <p class="promo-text">Страховые споры ОСАГО/КАСКО, возмещение материального и морального ущерба. Работаем на результат.</p>
+                    <a href="#services" class="promo-link">Подробнее →</a>
+                </div>
+            </div>
+            <div class="promo-card animate-on-scroll">
+                <div class="promo-image">
+                    <img src="Промо-блок 3.jpg" alt="Защита прав потребителей">
+                </div>
+                <div class="promo-content">
+                    <h3 class="promo-title">Защита прав потребителей</h3>
+                    <p class="promo-text">Споры с застройщиками, банками, продавцами. Возврат денег, неустойки, штрафы в вашу пользу.</p>
+                    <a href="#services" class="promo-link">Подробнее →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-dark" id="services">
+        <div class="section-header animate-on-scroll">
+            <div class="section-badge">Услуги</div>
+            <h2 class="section-title">Полный спектр юридических услуг</h2>
+            <p class="section-subtitle">От консультации до победы в суде</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card animate-on-scroll">
+                <div class="service-header">
+                    <div class="service-number">01</div>
+                    <div class="service-title-block">
+                        <h3>⚖️ Юридическое консультирование</h3>
+                    </div>
+                </div>
+                <ul class="service-list">
+                    <li>Анализ правовой ситуации</li>
+                    <li>Оценка перспектив дела</li>
+                    <li>Разработка стратегии защиты</li>
+                    <li>Подготовка документов</li>
+                </ul>
+                <div class="service-result">
+                    <p><strong>Результат:</strong> Чёткое понимание ситуации и план действий</p>
+                </div>
+            </div>
+
+            <div class="service-card animate-on-scroll">
+                <div class="service-header">
+                    <div class="service-number">02</div>
+                    <div class="service-title-block">
+                        <h3>🏛️ Представительство в суде</h3>
+                    </div>
+                </div>
+                <ul class="service-list">
+                    <li>Суды общей юрисдикции</li>
+                    <li>Арбитражные суды</li>
+                    <li>Апелляция и кассация</li>
+                    <li>Исполнительное производство</li>
+                </ul>
+                <div class="service-result">
+                    <p><strong>Результат:</strong> Профессиональная защита без вашего участия</p>
+                </div>
+            </div>
+
+            <div class="service-card animate-on-scroll">
+                <div class="service-header">
+                    <div class="service-number">03</div>
+                    <div class="service-title-block">
+                        <h3>🛒 Защита прав потребителей</h3>
+                        <span class="service-tag">Популярное</span>
+                    </div>
+                </div>
+                <ul class="service-list">
+                    <li>Споры с застройщиками по ДДУ</li>
+                    <li>Возврат денег за товары/услуги</li>
+                    <li>Споры с банками и МФО</li>
+                </ul>
+                <div class="service-result">
+                    <p><strong>Результат:</strong> Основная сумма + штраф 50% + неустойка</p>
+                </div>
+            </div>
+
+            <div class="service-card animate-on-scroll">
+                <div class="service-header">
+                    <div class="service-number">04</div>
+                    <div class="service-title-block">
+                        <h3>🚗 Страховые споры ОСАГО/КАСКО</h3>
+                        <span class="service-tag">Популярное</span>
+                    </div>
+                </div>
+                <ul class="service-list">
+                    <li>Занижение выплаты страховой</li>
+                    <li>Отказ в выплате</li>
+                    <li>Взыскание УТС</li>
+                    <li>Взыскание с виновника ДТП</li>
+                </ul>
+                <div class="service-result">
+                    <p><strong>Результат:</strong> В 2-3 раза больше первоначальной выплаты</p>
+                </div>
+            </div>
+
+            <div class="service-card animate-on-scroll">
+                <div class="service-header">
+                    <div class="service-number">05</div>
+                    <div class="service-title-block">
+                        <h3>🏠 Жилищные споры</h3>
+                    </div>
+                </div>
+                <ul class="service-list">
+                    <li>Залив квартиры</li>
+                    <li>Споры с УК и ТСЖ</li>
+                    <li>Перерасчёт платежей</li>
+                </ul>
+                <div class="service-result">
+                    <p><strong>Результат:</strong> Полное возмещение ущерба + штрафы</p>
+                </div>
+            </div>
+
+            <div class="service-card animate-on-scroll">
+                <div class="service-header">
+                    <div class="service-number">06</div>
+                    <div class="service-title-block">
+                        <h3>💔 Компенсация ущерба</h3>
+                    </div>
+                </div>
+                <ul class="service-list">
+                    <li>Материальный ущерб</li>
+                    <li>Моральный вред</li>
+                    <li>Ущерб здоровью</li>
+                    <li>Упущенная выгода</li>
+                </ul>
+                <div class="service-result">
+                    <p><strong>Результат:</strong> Максимальные суммы компенсации</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-cta animate-on-scroll">
+            <button class="btn btn-white btn-lg" onclick="openChat()">Получить консультацию</button>
+        </div>
+    </section>
+
+    <section class="section section-gray">
+        <div class="section-header animate-on-scroll">
+            <div class="section-badge">Процесс</div>
+            <h2 class="section-title">Как мы работаем</h2>
+            <p class="section-subtitle">Прозрачный процесс от консультации до результата</p>
+        </div>
+
+        <div class="process-steps" style="max-width: 600px; margin: 0 auto;">
+            <div class="process-step animate-on-scroll">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Бесплатная онлайн-консультация</h3>
+                    <p>Оцениваем ситуацию, определяем перспективы и возможную сумму требований. Это бесплатно и ни к чему не обязывает.</p>
+                </div>
+            </div>
+            <div class="process-step animate-on-scroll">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Заключение договора</h3>
+                    <p>Прозрачные условия без скрытых платежей. Фиксируем стоимость, сроки и гарантии.</p>
+                </div>
+            </div>
+            <div class="process-step animate-on-scroll">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Анализ документов и подготовка</h3>
+                    <p>Изучаем материалы, рассчитываем точную сумму требований, готовим правовую позицию.</p>
+                </div>
+            </div>
+            <div class="process-step animate-on-scroll">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h3>Работа в суде</h3>
+                    <p>Представляем ваши интересы на всех заседаниях. Вам не нужно участвовать лично.</p>
+                </div>
+            </div>
+            <div class="process-step animate-on-scroll">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <h3>Получение результата</h3>
+                    <p>Передаём исполнительный лист в ФССП, контролируем возбуждение исполнительного производства.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-cta animate-on-scroll">
+            <p class="section-note">Сопровождение в ФССП до получения денег — отдельная услуга</p>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stats-grid">
+                <div class="stat-item animate-on-scroll">
+                    <div class="stat-number" data-count="500">0+</div>
+                    <div class="stat-label">Выигранных дел</div>
+                </div>
+                <div class="stat-item animate-on-scroll">
+                    <div class="stat-number" data-count="50" data-suffix=" млн">0</div>
+                    <div class="stat-label">Взыскано ₽</div>
+                </div>
+                <div class="stat-item animate-on-scroll">
+                    <div class="stat-number" data-count="94" data-suffix="%">0</div>
+                    <div class="stat-label">Успешных дел</div>
+                </div>
+                <div class="stat-item animate-on-scroll">
+                    <div class="stat-number" data-count="15" data-suffix="+">0</div>
+                    <div class="stat-label">Лет опыта</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="cases">
+        <div class="section-header animate-on-scroll">
+            <div class="section-badge">Кейсы</div>
+            <h2 class="section-title">Результаты наших клиентов</h2>
+            <p class="section-subtitle">Реальные дела с конкретными суммами</p>
+        </div>
+
+        <div class="cases-grid">
+            <div class="case-card animate-on-scroll">
+                <div class="case-header">
+                    <div class="case-icon">🏗️</div>
+                    <div class="case-type">Спор с застройщиком</div>
+                </div>
+                <div class="case-body">
+                    <div class="case-row">
+                        <div class="case-label">Ситуация</div>
+                        <div class="case-value">Застройщик задержал сдачу квартиры на 8 месяцев</div>
+                    </div>
+                    <div class="case-row">
+                        <div class="case-label">Что сделали</div>
+                        <div class="case-value">Претензия, расчёт неустойки по ДДУ, представительство в суде</div>
+                    </div>
+                    <div class="case-result">
+                        <div class="case-label">Взыскано</div>
+                        <div class="case-amount">660 000 ₽</div>
+                    </div>
+                    <div class="case-duration">⏱️ Срок: 2 месяца</div>
+                </div>
+            </div>
+
+            <div class="case-card animate-on-scroll">
+                <div class="case-header">
+                    <div class="case-icon">🚗</div>
+                    <div class="case-type">Занижение ОСАГО</div>
+                </div>
+                <div class="case-body">
+                    <div class="case-row">
+                        <div class="case-label">Ситуация</div>
+                        <div class="case-value">Страховая выплатила 87 000 ₽ вместо 340 000 ₽</div>
+                    </div>
+                    <div class="case-row">
+                        <div class="case-label">Что сделали</div>
+                        <div class="case-value">Независимая экспертиза, претензия, суд</div>
+                    </div>
+                    <div class="case-result">
+                        <div class="case-label">Взыскано</div>
+                        <div class="case-amount">630 000 ₽</div>
+                    </div>
+                    <div class="case-duration">⏱️ Срок: 2,5 месяца</div>
+                </div>
+            </div>
+
+            <div class="case-card animate-on-scroll">
+                <div class="case-header">
+                    <div class="case-icon">🏠</div>
+                    <div class="case-type">Залив квартиры</div>
+                </div>
+                <div class="case-body">
+                    <div class="case-row">
+                        <div class="case-label">Ситуация</div>
+                        <div class="case-value">Прорыв стояка, УК отказала в возмещении</div>
+                    </div>
+                    <div class="case-row">
+                        <div class="case-label">Что сделали</div>
+                        <div class="case-value">Экспертиза ущерба, судебное взыскание</div>
+                    </div>
+                    <div class="case-result">
+                        <div class="case-label">Взыскано</div>
+                        <div class="case-amount">530 000 ₽</div>
+                    </div>
+                    <div class="case-duration">⏱️ Срок: 3 месяца</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-cta animate-on-scroll">
+            <button class="btn btn-primary btn-lg" onclick="openChat()">У меня похожая ситуация</button>
+        </div>
+    </section>
+
+    <section class="section section-gray why-section" id="why">
+        <div class="why-section-container" style="max-width: 1400px; margin: 0 auto;">
+            <div class="why-image animate-on-scroll">
+                <img src="Секция «Почему мы».jpg" alt="Почему выбирают нас">
+            </div>
+            <div class="why-content">
+                <div class="section-header animate-on-scroll" style="text-align: left;">
+                    <div class="section-badge">Преимущества</div>
+                    <h2 class="section-title">Почему выбирают нас</h2>
+                </div>
+
+                <div class="why-grid">
+                    <div class="why-card animate-on-scroll">
+                        <div class="why-icon">🎯</div>
+                        <h3>Специализация</h3>
+                        <p>Фокусируемся на судебном представительстве и взыскании компенсаций — знаем все тонкости</p>
+                    </div>
+                    <div class="why-card animate-on-scroll">
+                        <div class="why-icon">💸</div>
+                        <h3>Оплата за результат</h3>
+                        <p>Работаем на результат — вы платите процент от взысканной суммы</p>
+                    </div>
+                    <div class="why-card animate-on-scroll">
+                        <div class="why-icon">🤝</div>
+                        <h3>Всегда на связи</h3>
+                        <p>Отвечаем в мессенджерах, держим в курсе каждого этапа дела</p>
+                    </div>
+                    <div class="why-card animate-on-scroll">
+                        <div class="why-icon">📑</div>
+                        <h3>Полное сопровождение</h3>
+                        <p>От консультации до передачи дела в ФССП — берём всё на себя</p>
+                    </div>
+                    <div class="why-card animate-on-scroll">
+                        <div class="why-icon">🛡️</div>
+                        <h3>Прозрачность</h3>
+                        <p>Договор без мелкого шрифта и скрытых условий</p>
+                    </div>
+                    <div class="why-card animate-on-scroll">
+                        <div class="why-icon">📍</div>
+                        <h3>Вся Россия</h3>
+                        <p>Работаем в судах любого региона, консультируем онлайн</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-dark" id="about">
+        <div class="about-content animate-on-scroll" style="max-width: 700px; margin: 0 auto;">
+            <div class="section-badge">О бюро</div>
+            <h2 class="section-title">Правовое бюро</h2>
+                       <p class="about-text">
+                Команда практикующих юристов с опытом <strong>более 15 лет</strong> в сфере судебного представительства. Специализируемся на защите прав физических лиц, взыскании компенсаций и сопровождении дел в судах.
+            </p>
+            <p class="about-text">
+                Провели <strong>более 500 судебных процессов</strong> в судах общей юрисдикции и арбитражных судах. Берёмся только за дела с реальной перспективой и доводим каждое до результата.
+            </p>
+            <div class="about-mission">
+                <h3>Наша миссия</h3>
+                <p>Чтобы каждый получил профессиональную юридическую помощь и справедливую защиту своих прав.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="reviews">
+        <div class="section-header animate-on-scroll">
+            <div class="section-badge">Отзывы</div>
+            <h2 class="section-title">Что говорят клиенты</h2>
+        </div>
+
+        <div class="reviews-grid">
+            <div class="review-card animate-on-scroll">
+                <div class="review-image">
+                    <img src="Отзыв 1.jpg" alt="Отзыв клиента">
+                </div>
+                <div class="review-content">
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">«Страховая выплатила копейки после ДТП. Обратился сюда — получил в 4 раза больше. Даже в суд не ходил, всё сделали без меня!»</p>
+                    <div class="review-author">
+                        <div class="review-avatar">А</div>
+                        <div class="review-name">Алексей М.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-card animate-on-scroll">
+                <div class="review-image">
+                    <img src="Отзыв 2.jpg" alt="Отзыв клиента">
+                </div>
+                <div class="review-content">
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">«Затопило квартиру, УК отказывала платить. Через 3 месяца получила полную компенсацию. Очень благодарна за профессионализм!»</p>
+                    <div class="review-author">
+                        <div class="review-avatar">Е</div>
+                        <div class="review-name">Елена В.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-card animate-on-scroll">
+                <div class="review-image">
+                    <img src="Отзыв 3.jpg" alt="Отзыв клиента">
+                </div>
+                <div class="review-content">
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">«Застройщик задержал квартиру на год. Думала безнадёжно, но выиграли суд и получили больше 600 тысяч неустойки!»</p>
+                    <div class="review-author">
+                        <div class="review-avatar">М</div>
+                        <div class="review-name">Мария К.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-gray" id="faq">
+        <div class="section-header animate-on-scroll">
+            <div class="section-badge">FAQ</div>
+            <h2 class="section-title">Частые вопросы</h2>
+        </div>
+
+        <div class="faq-list">
+            <div class="faq-item animate-on-scroll">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span>Сколько стоят услуги?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Первичная онлайн-консультация — бесплатно. Стоимость ведения дела обсуждается индивидуально. Практикуем формат оплаты за результат — процент от взысканной суммы.</p>
+                </div>
+            </div>
+            <div class="faq-item animate-on-scroll">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span>Нужно ли мне ходить в суд?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Нет. Представляем ваши интересы по доверенности. Вам не нужно отпрашиваться с работы и тратить время.</p>
+                </div>
+            </div>
+            <div class="faq-item animate-on-scroll">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span>Как быстро вы отвечаете?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>В рабочее время — в течение 30 минут. Срочные ситуации — отвечаем немедленно.</p>
+                </div>
+            </div>
+            <div class="faq-item animate-on-scroll">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span>Гарантируете ли вы получение денег?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Мы контролируем передачу дела в ФССП и возбуждение исполнительного производства. Непосредственное получение денег зависит от должника и работы приставов. Сопровождение в ФССП до получения — отдельная услуга.</p>
+                </div>
+            </div>
+            <div class="faq-item animate-on-scroll">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span>Работаете ли вы в других городах?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Да. Консультируем онлайн, представляем интересы в судах любого региона России.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-dark" id="contact">
+        <div class="contact-content animate-on-scroll">
+            <div class="section-badge">Контакты</div>
+            <h2 class="section-title">Свяжитесь с нами</h2>
+            <p class="section-subtitle">Получите бесплатную онлайн-консультацию</p>
+
+            <div class="contact-messengers" style="margin-top: 2rem;">
+                <a href="https://t.me/+79521651110" target="_blank" class="contact-messenger-btn telegram">
+                    <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                    Telegram
+                </a>
+                <a href="https://wa.me/79521651110" target="_blank" class="contact-messenger-btn whatsapp">
+                    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    WhatsApp
+                </a>
+                <a href="https://max.ru/u/79609059555" target="_blank" class="contact-messenger-btn max">
+                    <svg viewBox="0 0 100 100">
+                        <rect width="100" height="100" rx="20" fill="white"/>
+                        <text x="50" y="62" text-anchor="middle" fill="#8B5CF6" font-family="Arial, sans-serif" font-size="32" font-weight="bold">max</text>
+                    </svg>
+                    Max
+                </a>
+            </div>
+
+            <div class="contact-divider">или</div>
+
+            <a href="mailto:pravanet@mail.ru" class="contact-email">pravanet@mail.ru</a>
+
+            <div class="contact-hours">
+                <strong>Часы работы:</strong><br>
+                Пн–Пт: 9:00–20:00, Сб: 10:00–16:00<br>
+                Срочные обращения — круглосуточно
+            </div>
+
+            <div class="contact-privacy">🔒 Защищено адвокатской тайной</div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <a href="#" class="logo">
+                <span class="logo-main">ПРАВОВОЕ БЮРО</span>
+                <span class="logo-tagline">Ваши права — наша работа</span>
+            </a>
+
+            <div class="footer-messengers">
+                <a href="https://t.me/+79521651110" target="_blank" class="footer-messenger-btn telegram">
+                    <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                </a>
+                <a href="https://wa.me/79521651110" target="_blank" class="footer-messenger-btn whatsapp">
+                    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                </a>
+                <a href="https://max.ru/u/79609059555" target="_blank" class="footer-messenger-btn max">
+                    <svg viewBox="0 0 100 100">
+                        <rect width="100" height="100" rx="20" fill="#8B5CF6"/>
+                        <text x="50" y="62" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="32" font-weight="bold">max</text>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="footer-legal">© 2024 Правовое бюро. Все права защищены.</div>
+        </div>
+    </footer>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/69c3711e46a6c41c341aae5b/1jkhn3ohh';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
+
+    <script>
+        // Header scroll
+        window.addEventListener('scroll', function() {
+            document.getElementById('header').classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Mobile menu
+        function toggleMobileMenu() {
+            const nav = document.getElementById('mobileNav');
+            const btn = document.getElementById('mobileMenuBtn');
+            nav.classList.toggle('active');
+            btn.classList.toggle('active');
+            document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
+        }
+
+        // Open Tawk.to chat
+        function openChat() {
+            if (typeof Tawk_API !== 'undefined') {
+                Tawk_API.maximize();
+            }
+        }
+
+        // FAQ
+        function toggleFaq(button) {
+            const item = button.parentElement;
+            const isActive = item.classList.contains('active');
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+            if (!isActive) item.classList.add('active');
+        }
+
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                    const stat = entry.target.querySelector('.stat-number');
+                    if (stat && !stat.classList.contains('counted')) {
+                        stat.classList.add('counted');
+                        const target = parseInt(stat.dataset.count);
+                        const suffix = stat.dataset.suffix || '+';
+                        let current = 0;
+                        const step = target / 125;
+                        const timer = setInterval(() => {
+                            current += step;
+                            if (current >= target) {
+                                stat.textContent = target + suffix;
+                                clearInterval(timer);
+                            } else {
+                                stat.textContent = Math.floor(current) + suffix;
+                            }
+                        }, 16);
+                    }
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - document.getElementById('header').offsetHeight,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
