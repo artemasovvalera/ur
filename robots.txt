@@ -1,1 +1,4 @@
+User-agent: *
+Allow: /
 
+Sitemap: https://artemasovvalera.github.io/ur/sitemap.xml
